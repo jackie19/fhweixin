@@ -581,7 +581,7 @@ $(function () {
     $('.input_step').inputNumber({ });
     $('.textarea').autogrow({ });
 
-    $('.footer').delegate('a','click',function(event){
+    $('.footer').delegate('a','click touchend',function(event){
         var parent = $(this).parent();
         if(parent.index() == 3){
             history.go(-1);
@@ -592,6 +592,15 @@ $(function () {
         }
     });
 
+    //group item可以展开收起
+    $('.item_drop').bind('touchend', function(){
+       var self  = $(this);
+        if(self.hasClass('on')){
+            self.removeClass('on');
+        } else {
+            self.addClass('on');
+        }
+    });
 
 
     //日历组件
